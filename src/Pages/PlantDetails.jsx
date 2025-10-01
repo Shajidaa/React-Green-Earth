@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 
 const PlantDetails = () => {
         //old method 
@@ -9,9 +10,14 @@ const PlantDetails = () => {
 const [plant,setPlant]=useState({})
     useEffect(()=>{
 
-        fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
-        .then (res=>res.json())
-        .then(data=>setPlant(data?.plants))
+        // fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+        // .then (res=>res.json())
+        // .then(data=>setPlant(data?.plants))
+
+        
+        axios(`https://openapi.programming-hero.com/api/plant/${id}`)
+        
+        .then(data=>setPlant(data.data.plants))
 
     },[id])
     // console.log(plant);
@@ -36,7 +42,7 @@ const [plant,setPlant]=useState({})
              </div>
              </div>
              <div>
-                <button  className='btn py-3'>Back home</button>
+                <Link to='/'  className='btn py-3'>Back home</Link>
              </div>
          
       </div>
