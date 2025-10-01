@@ -1,27 +1,35 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router';
+import { Link, useLoaderData, useParams } from 'react-router';
 
 const PlantDetails = () => {
         //old method 
-        const {id}=useParams()
-        // console.log(id);
+//         const {id}=useParams()
+//         // console.log(id);
         
-const [plant,setPlant]=useState({})
-    useEffect(()=>{
+// const [plant,setPlant]=useState({})
+//     useEffect(()=>{
 
-        // fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
-        // .then (res=>res.json())
-        // .then(data=>setPlant(data?.plants))
+//         // fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+//         // .then (res=>res.json())
+//         // .then(data=>setPlant(data?.plants))
 
         
-        axios(`https://openapi.programming-hero.com/api/plant/${id}`)
+//         axios(`https://openapi.programming-hero.com/api/plant/${id}`)
         
-        .then(data=>setPlant(data.data.plants))
+//         .then(data=>setPlant(data.data.plants))
 
-    },[id])
+//     },[id])
     // console.log(plant);
-    const {name,image,description,price,category}=plant;
+
+
+    
+    const {data}=useLoaderData();
+    // console.log(data.plants);
+    
+
+
+    const {name,image,description,price,category}=data.plants;
     return (
            <div className=" h-fit rounded-lg w-96 mx-auto   bg-base-100 shadow-sm lg:p-3 p-4">
     
