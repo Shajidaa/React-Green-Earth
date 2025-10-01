@@ -10,10 +10,12 @@ import Contact from './Pages/Contact';
 import About from './Pages/About';
 import PlantDetails from './Pages/PlantDetails';
 import axios from 'axios';
+import LoadingSpinner from './Components/LoadingSippner/LoadingSpinner';
 
 const router=createBrowserRouter([
   {
     path:'/',
+    HydrateFallback: LoadingSpinner,
  Component: RootLayout,
  children:[
         {
