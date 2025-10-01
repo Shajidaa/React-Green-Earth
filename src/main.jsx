@@ -16,10 +16,12 @@ const router=createBrowserRouter([
  children:[
         {
         index:true,
-        Component:Home
+        element:<Home/>,
+        loader:()=>fetch('https://openapi.programming-hero.com/api/plants'),
         },{
-          path:'/home',
-           Component:Home
+          path:'home',
+           element:<Home/>,
+          //  loader:()=>fetch('https://openapi.programming-hero.com/api/plants'),
         },{
           path:'/contact',
            Component:Contact
@@ -37,8 +39,6 @@ const router=createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <RouterProvider router={router}>
-
-  </RouterProvider>
+  <RouterProvider router={router}></RouterProvider>
   </StrictMode>,
 )
