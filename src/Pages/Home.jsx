@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router';
 import PlantsCard from '../Components/PlantsCard/PlantsCard';
 
 const Home = () => {
-    //old method 
+//     old method 
 // const [plants,setPlants]=useState([])
 //     useEffect(()=>{
 //         fetch(`https://openapi.programming-hero.com/api/plants`)
@@ -14,8 +14,8 @@ const Home = () => {
 
 const plantsData=useLoaderData();
 const plants=plantsData?.plants
-console.log(plants)
-console.log(plantsData);
+// console.log(plants)
+// console.log(plantsData);
 
     return (
         <div className='lg:p-10 p-5 grid md:grid-cols-3 col-span-3 gap-5 grid-cols-1  '>
