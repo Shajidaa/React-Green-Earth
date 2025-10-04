@@ -4,7 +4,7 @@ import { PropagateLoader } from 'react-spinners';
 const LoadingSpinner = () => {
     return (
         <div className=' min-h-dvh flex justify-center items-center'>
-            <PropagateLoader></PropagateLoader>
+            <PropagateLoader color={'green'}></PropagateLoader>
         </div>
     );
 };

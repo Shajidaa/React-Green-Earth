@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate, useNavigation } from 'react-router';
 
 const PlantsCard = ({plant}) => {
     
@@ -10,6 +10,7 @@ const PlantsCard = ({plant}) => {
 //     console.log("click");
     
 //  }
+  const navigate=useNavigate();
     return (
          <div className=" h-fit rounded-lg   bg-base-100 shadow-sm lg:p-3 p-4">
     
@@ -30,10 +31,18 @@ const PlantsCard = ({plant}) => {
              </div>
              </div>
           <div className="card-actions ">
-          <Link to={`/plantDetails/${id}` } className="btn rounded-full w-full
-          text-base text-white font-semibold bg-[#15803D] hover:bg-[#42ad6d]">View Details</Link>
-          {/* <button onClick={()=>viewDetails()} className="btn rounded-full w-full
-          text-base text-white font-semibold bg-[#15803D] hover:bg-[#42ad6d]">View Details</button> */}
+            {/* 1st way  */}
+          {/* <Link to={`/plantDetails/${id}` }    className="btn rounded-full w-full
+          text-base text-white font-semibold bg-[#15803D] hover:bg-[#42ad6d]">View Details</Link> */}
+
+          {/* 2nd way     state */}
+          {/* <Link to={`/plantDetails/${id}` }   state={plant}
+           className="btn rounded-full w-full
+          text-base text-white font-semibold bg-[#15803D] hover:bg-[#42ad6d]">View Details</Link> */}
+
+             {  /* 3rd way */}
+          <button onClick={()=>navigate(`/plantDetails/${id}`,{state:plant} )} className="btn rounded-full w-full
+          text-base text-white font-semibold bg-[#15803D] hover:bg-[#42ad6d]">View Details</button>
           </div>
       </div>
     </div>

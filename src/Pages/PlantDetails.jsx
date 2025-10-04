@@ -1,6 +1,7 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData, useParams } from 'react-router';
+// import axios from 'axios';
+// import React, { useEffect, useState } from 'react';
+// import { Link, useLoaderData, useLocation, useParams } from 'react-router';
+import { Link, useLoaderData, useLocation } from 'react-router';
 
 const PlantDetails = () => {
         //old method 
@@ -23,13 +24,17 @@ const PlantDetails = () => {
     // console.log(plant);
 
 
-    
-    const {data}=useLoaderData();
+
+     //******** 1st way ** */
+  //  const {data}=useLoaderData();
     // console.log(data.plants);
+    // const {name,image,description,price,category}=data.plants;
     
-
-
-    const {name,image,description,price,category}=data.plants;
+    // ************************************2nd way *************************************//
+    const location=useLocation();
+    console.log(location);
+    const {name,image,description,price,category}=location?.state || [];
+     
     return (
            <div className=" h-fit rounded-lg w-96 mx-auto   bg-base-100 shadow-sm lg:p-3 p-4">
     
