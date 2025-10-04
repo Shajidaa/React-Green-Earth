@@ -3,13 +3,16 @@ import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer';
 import { Outlet, useNavigation } from 'react-router';
 import LoadingSpinner from '../Components/LoadingSippner/LoadingSpinner';
+import { createContext, useState } from 'react';
 
+export const CartContext=createContext({})
 const RootLayout = () => {
+    const [cart,setCart]=useState([])
     const navigate=useNavigation();
     console.log(navigate);
     
     return (
-        <div>
+        <CartContext.Provider value={{cart,setCart}}>
             <Navbar></Navbar>
 
             {
@@ -24,7 +27,7 @@ const RootLayout = () => {
            
             
             <Footer></Footer>
-        </div>
+        </CartContext.Provider>
     );
 };
 

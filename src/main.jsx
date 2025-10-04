@@ -11,6 +11,7 @@ import About from './Pages/About';
 import PlantDetails from './Pages/PlantDetails';
 import axios from 'axios';
 import LoadingSpinner from './Components/LoadingSippner/LoadingSpinner';
+import Cart from './Pages/Cart';
 
 const router=createBrowserRouter([
   {
@@ -37,6 +38,9 @@ const router=createBrowserRouter([
           path:'/plantDetails/:id',
           Component: PlantDetails,
           loader:({params})=>axios(`https://openapi.programming-hero.com/api/plant/${params.id}`)
+        } ,{
+          path:'/cart',
+           Component:Cart
         }
  ]
   },

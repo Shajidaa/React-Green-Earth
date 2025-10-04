@@ -1,9 +1,14 @@
 // import axios from 'axios';
 // import React, { useEffect, useState } from 'react';
 // import { Link, useLoaderData, useLocation, useParams } from 'react-router';
+import { useContext, useState } from 'react';
 import { Link, useLoaderData, useLocation } from 'react-router';
+import { CartContext } from '../Layouts/RootLayout';
 
 const PlantDetails = () => {
+  // const [cart,setCart]=useState([])
+    const {cart,setCart}=useContext(CartContext)
+  
         //old method 
 //         const {id}=useParams()
 //         // console.log(id);
@@ -38,7 +43,7 @@ const PlantDetails = () => {
     return (
            <div className=" h-fit rounded-lg w-96 mx-auto   bg-base-100 shadow-sm lg:p-3 p-4">
     
-
+ 
          <figure className=' rounded-xl  overflow-hidden'>
                 <img className="aspect-3/2   object-cover"
 
@@ -57,7 +62,10 @@ const PlantDetails = () => {
              <div>
                 <Link to='/'  className='btn py-3'>Back home</Link>
              </div>
-         
+         <div>
+               <button  onClick={()=>setCart(prev=>[...prev,location?.state])}
+               className='btn  mt-2 btn-primary'>Add to Cart</button>
+             </div>
       </div>
     </div>
     );
