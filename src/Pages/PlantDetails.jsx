@@ -1,8 +1,8 @@
 // import axios from 'axios';
 // import React, { useEffect, useState } from 'react';
 // import { Link, useLoaderData, useLocation, useParams } from 'react-router';
-import { useContext, useState } from 'react';
-import { Link, useLoaderData, useLocation } from 'react-router';
+import { useContext } from 'react';
+import { Link,  useLocation } from 'react-router';
 import { CartContext } from '../Layouts/RootLayout';
 
 const PlantDetails = () => {
@@ -37,7 +37,7 @@ const PlantDetails = () => {
     
     // ************************************2nd way *************************************//
     const location=useLocation();
-    console.log(location);
+    // console.log(location);
     const {name,image,description,price,category}=location?.state || [];
      
     return (

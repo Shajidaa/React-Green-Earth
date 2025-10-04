@@ -9,7 +9,7 @@ export const CartContext=createContext({})
 const RootLayout = () => {
     const [cart,setCart]=useState([])
     const navigate=useNavigation();
-    console.log(navigate);
+    // console.log(navigate);
     
     return (
         <CartContext.Provider value={{cart,setCart}}>
